@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pay_flow/modules/login/login_controller.dart';
-import 'package:pay_flow/modules/widgets/social_login_button.dart';
 import 'package:pay_flow/shared/themes/app_colors.dart';
 import 'package:pay_flow/shared/themes/app_images.dart';
 import 'package:pay_flow/shared/themes/app_text_style.dart';
+import 'package:pay_flow/shared/widgets/social_login_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -57,7 +57,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 40, right: 40, top: 40),
-                    child: SocialLoginButton(onTap: controller.googleSignIn),
+                    child: SocialLoginButton(onTap: () {
+                      controller.googleSignIn(context);
+                    }),
                   ),
                 ],
               ),
