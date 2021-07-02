@@ -34,7 +34,8 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyles.titleRegular,
                     children: [
                       TextSpan(
-                          text: "Gabul", style: TextStyles.titleBoldBackground)
+                          text: "Beatriz",
+                          style: TextStyles.titleBoldBackground)
                     ]),
               ),
               subtitle: Text(
@@ -70,6 +71,7 @@ class _HomePageState extends State<HomePage> {
             GestureDetector(
               onTap: () {
                 print("Clicou");
+                Navigator.pushNamed(context, "/barCode");
               },
               child: Container(
                 width: 56,
