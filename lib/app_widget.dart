@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:pay_flow/modules/barcode_scanner/barcode_scanner_page.dart';
 import 'package:pay_flow/modules/home/home_page.dart';
+import 'package:pay_flow/modules/insert_boleto/insert_boleto_page.dart';
 import 'package:pay_flow/modules/login/login_page.dart';
 import 'package:pay_flow/modules/splash/splash_page.dart';
 import 'package:pay_flow/shared/themes/app_colors.dart';
@@ -28,7 +29,8 @@ class AppWidget extends StatelessWidget {
           "/home": (context) => HomePage(),
           "/login": (context) => LoginPage(),
           "/splash": (context) => SplashPage(),
-          "/barCode": (context) => BarCodeScannerPage(),
+          "/barCode": (context) => BarcodeScannerPage(),
+          "/insertBoleto": (context) => InsertBoletoPage(),
         });
   }
 }
