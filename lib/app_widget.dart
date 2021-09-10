@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:pay_flow/modules/barcode_scanner/barcode_scanner_page.dart';
 import 'package:pay_flow/modules/home/home_page.dart';
 import 'package:pay_flow/modules/insert_boleto/insert_boleto_page.dart';
 import 'package:pay_flow/modules/login/login_page.dart';
 import 'package:pay_flow/modules/splash/splash_page.dart';
+import 'package:pay_flow/shared/models/user_model.dart';
 import 'package:pay_flow/shared/themes/app_colors.dart';
 
 class AppWidget extends StatelessWidget {
@@ -26,11 +26,16 @@ class AppWidget extends StatelessWidget {
             backgroundColor: AppColors.background),
         initialRoute: "/splash",
         routes: {
-          "/home": (context) => HomePage(),
+          "/home": (context) => HomePage(
+                user: ModalRoute.of(context)!.settings.arguments as UserModel,
+              ),
           "/login": (context) => LoginPage(),
           "/splash": (context) => SplashPage(),
           "/barCode": (context) => BarcodeScannerPage(),
-          "/insertBoleto": (context) => InsertBoletoPage(),
+          "/insertBoleto": (context) => InsertBoletoPage(
+              barcode: ModalRoute.of(context) != null
+                  ? ModalRoute.of(context)!.settings.arguments.toString()
+                  : ""),
         });
   }
 }
